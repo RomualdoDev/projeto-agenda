@@ -21,6 +21,7 @@
     "webpack-cli": "^3.3.9"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.2.2",
     "core-js": "^3.3.2",
@@ -33,6 +34,7 @@
     "helmet": "^4.4.1",
     "mongoose": "^5.11.18",
     "regenerator-runtime": "^0.13.3",
-    "style-loader": "^1.0.0"
+    "style-loader": "^1.0.0",
+    "validator": "^13.5.2"
   }
 }

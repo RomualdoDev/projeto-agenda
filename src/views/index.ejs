@@ -1,20 +1,29 @@
-<%- include('includes/head'); %>
+<%- include('includes/head')%>
+<%- include('includes/nav')%>
 
-  <section class="container">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
 
-    <h1>
-      <%= titulo %><br> <!--Não executa tags html contidas no "titulo"  -->
-      <%- titulo %><br> <!--Executa tags html contidas no "titulo"  -->
-    <%= umaVariavelLocal %> <!-- Pode ser usado também uma variavel que este em um middleware -->
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">Agenda</h1>
+      <p class="text-center lead">Contatos listados abaixo:</p>
+    </div>
 
-    </h1>
+    <div class="responsive-table">
+      <table class="table my-3">
+        <tr>
+          <td>Gabriel</td>
+          <td>Santos</td>
+          <td>4343242342342</td>
+          <td>gabriel@gmail.com</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="col-lg-2"></div>
+  </div>
+</div>
 
-    <form action="/" method="post">
-      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-      <label>Cliente</label>
-      <input type="text" name="cliente">
-      <button> Submit </button>
-    </form>
-  </section>
-
-<%- include('includes/footer'); %>
+<%- include('includes/footer')%>  
