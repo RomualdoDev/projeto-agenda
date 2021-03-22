@@ -5,7 +5,12 @@ const app = express();
 
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.CONNECTIONSTRING,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+    })
     .then(() => {
         app.emit('pronto');
     })
@@ -21,7 +26,7 @@ const csrf = require('csurf');
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware');
 
 app.use(helmet());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
@@ -30,7 +35,7 @@ const sessionOptions = session({
     store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
     resave: false,
     saveUninitialized: false,
-    cookie:{
+    cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7,
         httpOnly: true
     }

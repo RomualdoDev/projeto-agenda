@@ -26,7 +26,7 @@ class Login {
             return;
         }
 
-        if (!bcryptjs.compareSync(this.body.password, this.user.password)){
+        if (!bcryptjs.compareSync(this.body.password, this.user.password)) {
             this.errors.push('Senha inválida');
             this.user = null;
             return;
